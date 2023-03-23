@@ -1,0 +1,3 @@
+<view class="container">
+  <comment-thread comment-thread-id="{{commentThreadId}}"></comment-thread>
+</view>

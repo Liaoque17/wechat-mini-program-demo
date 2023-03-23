@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "电台详情页",
+  "usingComponents": {
+    "loading-panel": "../../../components/loading-panel/index",
+    "music-progress": "../../play/music-progress/index"
+  }
+}

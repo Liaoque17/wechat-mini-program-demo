@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "navigation-tab": "./navigation-tab/index",
+    "recommend-tab": "./recommend-tab/index",
+    "playlist-tab": "./playlist-tab/index",
+    "radio-tab": "./radio-tab/index",
+    "ranking-tab": "./ranking-tab/index"
+  }
+}

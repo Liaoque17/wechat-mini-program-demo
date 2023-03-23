@@ -1,0 +1,114 @@
+page, view{
+  box-sizing: border-box;
+}
+
+.checked-card{
+  border: 3rpx solid #ee1719 !important;
+}
+
+
+.playlist-tab {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .category-selector{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    overflow-y: scroll;
+    z-index: 100;
+    background-color: white;
+
+
+    .close-category-panel{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+       > image{
+         width: 72rpx;
+         height: 72rpx;
+       }
+    }
+
+    .all-music{
+      height: 84rpx;
+      text-align: center;
+      width: 100%;
+      border: 1rpx solid #e1e2e3;
+      font-size: 32rpx;
+      line-height: 84rpx;
+      position: relative;
+    }
+
+    //大的分类
+    .category-item{
+      display: block;
+      margin-top: 32rpx;
+
+      .category-label{
+        font-size: 32rpx;
+        text-align: center;
+      }
+
+      //子分类列表
+      .sub-category-list{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .sub-category-item{
+          position: relative;
+          box-sizing: border-box;
+          height: 84rpx;
+          text-align: center;
+          line-height: 84rpx;
+          border: 1rpx solid #e1e2e3;
+          width: 25%;
+          font-size: 24rpx;
+          margin-top: 8rpx;
+        }
+      }
+    }
+  }
+
+  scroll-view {
+    height: 100%;
+  }
+
+  .category-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 32rpx;
+    padding: 8rpx 16rpx;
+
+    .current-category{
+      border-left: 3px solid red;
+      padding-left: 8rpx;
+    }
+
+    .category-btn{
+      font-size: 28rpx;
+      padding: 8rpx;
+      color: #3d3d3d;
+      border: 1rpx solid #e1e2e3;
+    }
+  }
+
+  .playlist-container {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+      box-sizing: border-box;
+      padding: 16rpx;
+      width: 50%;
+    }
+  }
+}

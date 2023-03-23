@@ -1,0 +1,59 @@
+<view class="container">
+
+  <!--  整体背景图-->
+  <image src="./images/bg.jpg"
+         class="bg-img"></image>
+
+  <!--  歌曲封面模糊化背景图-->
+  <image src="{{songDetail.al.picUrl}}?param=600y600"
+         mode="aspectFill"
+         class="blur-bg-img"></image>
+
+  <!--  唱片转盘-->
+  <view hidden="{{displayMode !== 'cover'}}"
+        bindtap="onCloseCover"
+        class="cover-container">
+
+    <!--    唱片机指针-->
+    <image class="music-pointer {{isPlaying ? 'playing' : ''}}"
+           src="./images/pointer.png"></image>
+
+    <!--  中心唱片-->
+    <view class="plate-container">
+      <image class="plate-bg"
+             src="./images/plate_bg.png"></image>
+      <image class="song-cover"
+             src="{{songDetail.al.picUrl}}?param=600y600"></image>
+    </view>
+  </view>
+
+
+  <!-- 歌词部分 -->
+  <view class="lyric-container"
+        hidden="{{displayMode !== 'lyric'}}">
+    <lyric lyric="{{lyric}}"
+          currentIndex="{{lyricCurrentIndex}}"
+          bind:click-lyric="onCloseLyric"></lyric>
+  </view>
+
+  <!--  播放进度条-->
+  <music-progress
+          style="width: 100%;"
+          currentTime="{{currentTime}}"
+          duration="{{duration}}"
+          bind:seek-music="onSeekMusic"></music-progress>
+
+  <!--  音乐控制面板-->
+  <view class="control-panel">
+    <image src="./images/previous_icon.png"
+           class="previous-btn"></image>
+    <image src="./images/play_icon.png"
+           bindtap="onClickPlay"
+           hidden="{{isPlaying}}"></image>
+    <image src="./images/pause_icon.png"
+           bindtap="onClickPause"
+           hidden="{{!isPlaying}}"></image>
+    <image src="./images/next_icon.png"
+           class="next-btn"></image>
+  </view>
+</view>

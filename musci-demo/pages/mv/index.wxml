@@ -1,0 +1,57 @@
+<view class="container">
+  <video src="{{mvDetail.brs['240']}}" class="video"></video>
+
+  <view class="tab-bar">
+    <view
+      data-tab-name="{{TAB_NAME.DETAIL}}"
+      bindtap="onClickTab"
+      class="tab {{currentTab === TAB_NAME.DETAIL ? 'active' :''}}"
+      >详情
+    </view>
+    <view
+      data-tab-name="{{TAB_NAME.COMMENT}}"
+      bindtap="onClickTab"
+      class="tab {{currentTab === TAB_NAME.COMMENT ? 'active' :''}}"
+      >评论 ({{mvDetail.commentCount}})
+    </view>
+    <view
+      data-tab-name="{{TAB_NAME.RELATED_MV}}"
+      bindtap="onClickTab"
+      class="tab {{currentTab === TAB_NAME.RELATED_MV ? 'active' :''}}"
+      >相关MV
+    </view>
+  </view>
+
+  <view class="mv-info-panel" wx:if="{{currentTab === TAB_NAME.DETAIL}}">
+    <text class="mv-name">{{mvDetail.name}}</text>
+    <text class="info-text">歌手: {{mvDetail.artists[0].name}}</text>
+    <text class="info-text">播放量: {{mvDetail.playCount}}</text>
+    <text class="info-text">发行时间: {{mvDetail.publishTime}}</text>
+
+    <view class="divider"></view>
+    <view class="info-text">
+      {{mvDetail.desc}}
+    </view>
+  </view>
+
+
+  <view class="mv-comment-panel"
+        wx:if="{{currentTab === TAB_NAME.COMMENT}}">
+    <comment-thread comment-thread-id="{{mvDetail.commentThreadId}}"></comment-thread>
+  </view>
+
+  <view class="related-mv-panel"
+        wx:if="{{currentTab === TAB_NAME.RELATED_MV}}">
+    <navigator wx:for="{{recommendMvList}}"
+               wx:for-item="mv"
+               wx:key="index"
+               class="mv-item"
+               url="../mv/index?id={{mv.id}}">
+      <image src="{{mv.cover}}"
+             class="mv-cover"
+             mode="widthFix"></image>
+      <view class="mv-name">{{mv.name}}</view>
+      <view class="singer">{{mv.artistName}}</view>
+    </navigator>
+  </view>
+</view>

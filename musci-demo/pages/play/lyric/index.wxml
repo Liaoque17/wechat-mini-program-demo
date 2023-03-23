@@ -1,0 +1,17 @@
+<view class="lyric-container"
+      bindtap="clickLyric">
+  <view style="transform: translateY(calc(-{{currentIndex*100/(lyric.lyricItems.length)}}% + 40vh)); transition:all ease 1s;"
+        hidden="{{!lyric}}">
+
+    <view wx:for-items="{{lyric.lyricItems}}"
+          wx:key="index"
+          class="row {{index===currentIndex ? 'current-row':''}}">
+      {{item.content}}
+    </view>
+  </view>
+
+  <view hidden="{{lyric}}"
+        class="loading-panel">
+    歌词加载中...
+  </view>
+</view>

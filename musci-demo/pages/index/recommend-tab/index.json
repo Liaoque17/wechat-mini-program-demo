@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "playlist-card": "../../../components/card/playlist-card/index",
+    "song-card": "../../../components/card/song-card/index",
+    "mv-card": "../../../components/card/mv-card/index",
+    "radio-card": "../../../components/card/radio-card/index"
+  }
+}

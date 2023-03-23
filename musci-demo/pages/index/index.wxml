@@ -1,0 +1,23 @@
+<view class="container">
+  <navigation-tab bind:change-tab="onChangeTab"></navigation-tab>
+
+  <view class="content recommend-tab"
+        hidden="{{currentTabId !== 'recommend'}}">
+    <recommend-tab></recommend-tab>
+  </view>
+
+  <view class="content playlist-tab"
+        hidden="{{currentTabId !== 'playlist'}}">
+    <playlist-tab></playlist-tab>
+  </view>
+
+  <view class="content radio-tab"
+        hidden="{{currentTabId !== 'radio'}}">
+    <radio-tab></radio-tab>
+  </view>
+
+  <view class="content ranking-tab"
+        hidden="{{currentTabId !== 'ranking'}}">
+    <ranking-tab></ranking-tab>
+  </view>
+</view>

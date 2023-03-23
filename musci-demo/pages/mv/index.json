@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "MV页",
+  "usingComponents": {
+    "comment-thread": "../../components/comment-thread/index"
+  }
+}

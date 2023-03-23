@@ -1,0 +1,61 @@
+<view class="playlist-tab">
+
+  <!--  分类选择面板-->
+  <view hidden="{{!showCategory}}" class="category-selector">
+
+    <view class="close-category-panel">
+      <image src="../images/close.png"
+             mode="widthFix"
+             bindtap="onClickClose"></image>
+    </view>
+
+    <view class="all-music {{selectedCategory === '全部歌单' ? 'checked-card' : ''}}">
+      全部歌曲
+    </view>
+
+    <view wx:for="{{categoryList}}"
+          wx:for-item="categoryId"
+          wx:key="index"
+          class="category-item">
+
+      <!--      显示分类的名称-->
+      <view class="category-label">{{categoryId}}</view>
+
+      <!--      循环渲染子分类列表-->
+      <view class="sub-category-list">
+        <view wx:for="{{subCategoryMap[index]}}"
+              wx:for-item="subCategory"
+              wx:key="index"
+              data-category="{{subCategory.name}}"
+              bindtap="onClickCategory"
+              class="sub-category-item {{selectedCategory === subCategory.name ? 'checked-card' : ''}}">
+          {{subCategory.name}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view bindscrolltolower="onReachBottom"
+               scroll-y="true">
+    <view class="category-panel">
+      <text class="current-category">{{selectedCategory}}</text>
+      <view class="category-btn"
+            bindtap="onClickAllCategory">
+        全部分类
+      </view>
+    </view>
+
+    <view class="playlist-container">
+      <playlist-card wx:for="{{playlists}}"
+                     wx:for-item="playlist"
+                     wx:key="index"
+                     playlist="{{playlist}}"
+                     data-playlist-id="{{playlist.id}}"
+                     class="card"
+                     bindtap="onClickPlaylist">
+      </playlist-card>
+    </view>
+
+    <loading-panel hidden="{{showLoading !== true}}"></loading-panel>
+  </scroll-view>
+</view>
